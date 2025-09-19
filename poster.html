@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIGI-HMM Workshop Poster - IEEE ITSC 2025</title>
+    <meta name="description" content="AIGI-HMM Workshop on Integrating Artificial Intelligence and Geospatial Intelligence in Human Mobility Modeling at IEEE ITSC 2025">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #003366;
+            --accent-color: #FFB81C;
+            --secondary-color: #1e4d72;
+            --text-color: #333;
+            --background-color: #0a1a2e;
+            --card-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            --gradient-bg: linear-gradient(135deg, #0a1a2e 0%, #16213e 50%, #1e3a5f 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--gradient-bg);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .poster-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Gold Coast Background Image */
+        .poster-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/city-of-gold-coast.jpg') center/cover no-repeat;
+            opacity: 0.20;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Dark overlay for better text contrast */
+        .poster-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 26, 46, 0.85) 0%, rgba(30, 58, 95, 0.75) 50%, rgba(10, 26, 46, 0.85) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Background Pattern */
+        .poster-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .poster-content {
+            position: relative;
+            z-index: 3;
+            padding: 40px;
+        }
+
+        /* Header Section */
+        .poster-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .workshop-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .workshop-title {
+            font-size: 4.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .workshop-subtitle {
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .event-detail i {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+        }
+
+        .event-detail-text {
+            font-weight: 500;
+            font-size: 1.4rem;
+        }
+
+        /* Website Link */
+        .website-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: rgba(255, 184, 28, 0.15);
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--accent-color);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .website-link i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .website-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .website-link a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Content Grid */
+        .poster-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* Keynote Speakers Section */
+        .keynote-section {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 35px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .speaker-card {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .speaker-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .speaker-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .speaker-title {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .speaker-affiliation {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+        }
+
+        /* Topics Section */
+        .topics-section {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .topics-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topics-list li {
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 40px;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .topics-list li:last-child {
+            border-bottom: none;
+        }
+
+        .topics-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            top: 18px;
+            font-weight: bold;
+        }
+
+        /* Bottom Section */
+        .poster-bottom {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        /* Organizers Section */
+        .organizers-section {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .organizers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .organizer-card {
+            text-align: center;
+            padding: 20px 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .organizer-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 25px rgba(255, 184, 28, 0.2);
+        }
+
+        .organizer-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .organizer-card:hover .organizer-photo {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 184, 28, 0.4);
+        }
+
+        .organizer-photo-placeholder {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .organizer-photo-placeholder i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .organizer-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 6px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .organizer-affiliation {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        /* Awards Section - Large */
+        .awards-section-large {
+            background: rgba(255, 184, 28, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            backdrop-filter: blur(8px);
+            border: 3px solid var(--accent-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(255, 184, 28, 0.2);
+        }
+
+        .awards-title-large {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        .award-item-simple {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 0;
+            border-bottom: 2px solid rgba(255, 184, 28, 0.3);
+            gap: 15px;
+        }
+
+        .award-item-simple:last-of-type {
+            border-bottom: none;
+            margin-bottom: 25px;
+        }
+
+        .award-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .award-name-simple {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+        }
+
+        .sponsors-info {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255, 184, 28, 0.3);
+        }
+
+        .sponsors-text {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        .sponsors-text i {
+            color: var(--accent-color);
+            margin-right: 8px;
+        }
+
+
+        /* Schedule Preview */
+        .schedule-preview {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-time {
+            color: var(--accent-color);
+            font-weight: 600;
+            min-width: 140px;
+        }
+
+        .schedule-activity {
+            color: rgba(255, 255, 255, 0.9);
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .poster-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .poster-bottom {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .organizers-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+            }
+            
+            .organizer-photo {
+                width: 85px;
+                height: 85px;
+            }
+            
+            .awards-section-large {
+                padding: 30px;
+            }
+            
+            .awards-title-large {
+                font-size: 2rem;
+            }
+            
+            .award-name-simple {
+                font-size: 1.4rem;
+            }
+            
+            .award-icon {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .poster-content {
+                padding: 20px;
+            }
+            
+            .workshop-title {
+                font-size: 3.2rem;
+            }
+            
+            .workshop-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .event-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .speakers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .organizers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .speaker-photo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .organizer-photo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .organizer-card {
+                padding: 15px 8px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .poster-container {
+                background: white;
+                box-shadow: none;
+                border: 2px solid #003366;
+            }
+            
+            .workshop-title {
+                -webkit-text-fill-color: #003366;
+                color: #003366;
+            }
+            
+            .section-title {
+                color: #003366;
+            }
+            
+            .event-detail,
+            .keynote-section,
+            .topics-section,
+            .organizers-section,
+            .awards-section,
+            .sponsors-section,
+            .schedule-preview {
+                background: rgba(0, 51, 102, 0.05);
+                border: 1px solid rgba(0, 51, 102, 0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="poster-content">
+            <!-- Header -->
+            <div class="poster-header">
+                <div class="workshop-badge">AIGI-HMM</div>
+                <h1 class="workshop-title">AI & Geospatial Intelligence</h1>
+                <h2 class="workshop-subtitle">Innovative Methods and Applications in Human Mobility Modeling</h2>
+                
+                <div class="event-details">
+                    <div class="event-detail">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span class="event-detail-text">November 18, 2025</span>
+                    </div>
+                    <div class="event-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="event-detail-text">Gold Coast, Australia</span>
+                    </div>
+                    <div class="event-detail">
+                        <i class="fas fa-university"></i>
+                        <span class="event-detail-text">IEEE ITSC 2025</span>
+                    </div>
+                </div>
+                
+                <div class="website-link">
+                    <i class="fas fa-globe"></i>
+                    <a href="https://itsc2025aigihmm.github.io/ITSC2025-AIGI-HMM/" target="_blank" rel="noopener">
+                        itsc2025aigihmm.github.io/ITSC2025-AIGI-HMM
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="poster-main">
+                <!-- Keynote Speakers -->
+                <div class="keynote-section">
+                    <h3 class="section-title">Keynote Speakers</h3>
+                    <div class="speakers-grid">
+                        <div class="speaker-card">
+                            <img src="assets/pic/Meead_Saberi_portrait.jpeg" alt="Dr. Meead Saberi" class="speaker-photo">
+                            <div class="speaker-name">Dr. Meead Saberi</div>
+                            <div class="speaker-title">Associate Professor</div>
+                            <div class="speaker-affiliation">University of New South Wales</div>
+                        </div>
+                        <div class="speaker-card">
+                            <img src="assets/pic/KS_.jpg" alt="Dr. Khurram Shafique" class="speaker-photo">
+                            <div class="speaker-name">Dr. Khurram Shafique</div>
+                            <div class="speaker-title">President</div>
+                            <div class="speaker-affiliation">Novateur Research Solutions</div>
+                        </div>
+                        <div class="speaker-card">
+                            <img src="assets/pic/DrChiang.jpg" alt="Dr. Yaoyi Chiang" class="speaker-photo">
+                            <div class="speaker-name">Dr. Yaoyi Chiang</div>
+                            <div class="speaker-title">Associate Professor</div>
+                            <div class="speaker-affiliation">University of Minnesota</div>
+                        </div>
+                        <div class="speaker-card">
+                            <img src="assets/pic/Ryan Qi.jpg" alt="Dr. Ryan Qi Wang" class="speaker-photo">
+                            <div class="speaker-name">Dr. Ryan Qi Wang</div>
+                            <div class="speaker-title">Associate Professor</div>
+                            <div class="speaker-affiliation">Northeastern University</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topics -->
+                <div class="topics-section">
+                    <h3 class="section-title">Key Topics</h3>
+                    <ul class="topics-list">
+                        <li>Mobility Pattern Recognition & Travel Behavior</li>
+                        <li>Multi-Modal Mobility Data Fusion</li>
+                        <li>Scalable Data Mining & Enrichment</li>
+                        <li>Normal & Atypical Mobility Modeling</li>
+                        <li>Transportation-Focused Applications</li>
+                        <li>LLMs & Foundation Models for Mobility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="poster-bottom">
+                <!-- Main Organizers -->
+                <div class="organizers-section">
+                    <h3 class="section-title">Main Organizers</h3>
+                    <div class="organizers-grid">
+                        <div class="organizer-card">
+                            <img src="assets/pic/XishunLiao.png" alt="Xishun Liao" class="organizer-photo">
+                            <div class="organizer-name">Xishun Liao</div>
+                            <div class="organizer-affiliation">University of Central Florida</div>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="assets/pic/YifanLiu.png" alt="Yifan Liu" class="organizer-photo">
+                            <div class="organizer-name">Yifan Liu</div>
+                            <div class="organizer-affiliation">UCLA</div>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="assets/pic/HaoxuanMa.png" alt="Haoxuan Ma" class="organizer-photo">
+                            <div class="organizer-name">Haoxuan Ma</div>
+                            <div class="organizer-affiliation">UCLA</div>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="assets/pic/YuanLiao.JPG" alt="Yuan Liao" class="organizer-photo">
+                            <div class="organizer-name">Yuan Liao</div>
+                            <div class="organizer-affiliation">Chalmers University</div>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="assets/pic/ShangqingCao.png" alt="Shangqing Cao" class="organizer-photo">
+                            <div class="organizer-name">Shangqing Cao</div>
+                            <div class="organizer-affiliation">UC Berkeley</div>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="assets/pic/YueshuaiHe.png" alt="Yueshuai He" class="organizer-photo">
+                            <div class="organizer-name">Yueshuai He</div>
+                            <div class="organizer-affiliation">University of Louisville</div>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="assets/pic/MartaGonzalez.png" alt="Marta Gonzalez" class="organizer-photo">
+                            <div class="organizer-name">Marta Gonzalez</div>
+                            <div class="organizer-affiliation">UC Berkeley</div>
+                        </div>
+                        <div class="organizer-card">
+                            <img src="assets/pic/JiaqiMa.png" alt="Jiaqi Ma" class="organizer-photo">
+                            <div class="organizer-name">Jiaqi Ma</div>
+                            <div class="organizer-affiliation">UCLA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Best Paper Awards -->
+                <div class="awards-section-large">
+                    <h3 class="awards-title-large"><i class="fas fa-trophy"></i> Best Paper Awards</h3>
+                    <div class="award-item-simple">
+                        <i class="fas fa-medal award-icon"></i>
+                        <span class="award-name-simple">Best Paper Award</span>
+                    </div>
+                    <div class="award-item-simple">
+                        <i class="fas fa-award award-icon"></i>
+                        <span class="award-name-simple">Best Paper Runner-Up</span>
+                    </div>
+                    <div class="award-item-simple">
+                        <i class="fas fa-star award-icon"></i>
+                        <span class="award-name-simple">Best Application Paper</span>
+                    </div>
+                    <div class="sponsors-info">
+                        <p class="sponsors-text">
+                            <i class="fas fa-university"></i> <strong>Sponsored by NSF & Mobility COE</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Preview -->
+            <div class="schedule-preview">
+                <h3 class="section-title">Half-Day Schedule</h3>
+                <div class="schedule-item">
+                    <span class="schedule-time">08:30 – 08:40</span>
+                    <span class="schedule-activity">Welcome and Introduction</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="schedule-time">08:40 – 10:20</span>
+                    <span class="schedule-activity">Keynote Talks 1 & 2 + Lightning Talks</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="schedule-time">10:20 – 10:50</span>
+                    <span class="schedule-activity">☕ Refreshments Break</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="schedule-time">10:50 – 12:30</span>
+                    <span class="schedule-activity">Keynote Talks 3 & 4 + Lightning Talks</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.speaker-card, .organizer-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
