@@ -72,6 +72,35 @@
             </div>
         </section>
 
+        <section id="submission" class="submission-section">
+            <div class="container">
+                <h2>Call for Student Paper Submissions</h2>
+                <div class="submission-content content-block">
+                    <p>We invite students to submit their research papers related to AI, geospatial intelligence, and human mobility modeling. This is an excellent opportunity to present your work and receive feedback from leading experts in the field.</p>
+                    
+                    <div class="submission-methods">
+                        <div class="submission-method animate-on-scroll">
+                            <div class="submission-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="submission-info">
+                                <h3>Submit via Google Form</h3>
+                                <p>Complete our online submission form with your paper details</p>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScaMda-N7TT85VIni41PdsvJJlwQ6t2mI-jE5_hGXrWBpBg9A/viewform?usp=sharing&ouid=102714958121108862684" 
+                                   target="_blank" rel="noopener" class="submission-btn">
+                                    <i class="fas fa-external-link-alt"></i> Submit Paper
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="submission-contact">
+                        <p><i class="fas fa-info-circle"></i> If you encounter any problems with the submission process, please contact <a href="mailto:bmmliu@ucla.edu">bmmliu@ucla.edu</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="keynote" class="keynote-section">
             <div class="container">
                 <h2>Keynote Speakers</h2>
@@ -1149,6 +1178,117 @@ section h2 {
     .content-block {
         padding: 15px;
     }
+}
+
+/* Submission Section */
+.submission-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.submission-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+    transition: var(--transition);
+    border: 2px solid #e0e0e0;
+}
+
+.submission-method:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.submission-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    transition: var(--transition);
+}
+
+.submission-method:hover .submission-icon {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.submission-info h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.submission-info p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.submission-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.submission-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: white;
+}
+
+.submission-contact {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 51, 102, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.submission-contact p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.submission-contact i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.submission-contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.submission-contact a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
 }
 
 /* Sponsors Section */
