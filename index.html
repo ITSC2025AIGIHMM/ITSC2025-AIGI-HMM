@@ -78,6 +78,10 @@
                 <div class="submission-content content-block">
                     <p>We invite students to submit their research papers related to AI, geospatial intelligence, and human mobility modeling. This is an excellent opportunity to present your work and receive feedback from leading experts in the field.</p>
                     
+                    <div class="submission-deadline">
+                        <p><i class="fas fa-calendar-alt"></i> <strong>Submission Deadline: October 31st, 2024 (Anywhere on Earth)</strong></p>
+                    </div>
+                    
                     <div class="submission-methods">
                         <div class="submission-method animate-on-scroll">
                             <div class="submission-icon">
@@ -1192,6 +1196,27 @@ section h2 {
 }
 
 /* Submission Section */
+.submission-deadline {
+    background: rgba(255, 184, 28, 0.1);
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.submission-deadline p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.submission-deadline i {
+    color: var(--accent-color);
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
 .submission-methods {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
