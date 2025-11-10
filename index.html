@@ -229,6 +229,113 @@
             </div>
         </section>
 
+        <section id="lightning-speakers" class="organizers-section">
+            <div class="container">
+                <h2>Lightning Talk Speakers</h2>
+                <div class="organizers-content content-block">
+                    <p style="text-align: center; margin-bottom: 2rem;">We are excited to feature lightning talks from emerging researchers who are pushing the boundaries of human mobility modeling and AI applications in transportation.</p>
+                    
+                    <style>
+                        .lightning-speakers-grid {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 2.5rem;
+                            margin-top: 2rem;
+                        }
+                        .lightning-speaker-card {
+                            text-align: center;
+                            padding: 1.5rem;
+                            background: white;
+                            border-radius: 12px;
+                            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                        }
+                        .lightning-speaker-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+                        }
+                        .lightning-speaker-photo-container {
+                            width: 200px;
+                            height: 200px;
+                            margin: 0 auto 1.5rem;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            border: 4px solid #2c5282;
+                        }
+                        .lightning-speaker-photo-container img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                        .lightning-speaker-name {
+                            font-size: 1.3rem;
+                            font-weight: 600;
+                            color: #2c5282;
+                            margin-bottom: 0.5rem;
+                        }
+                        .lightning-speaker-title {
+                            color: #e67e22;
+                            font-weight: 500;
+                            margin-bottom: 0.3rem;
+                        }
+                        .lightning-speaker-affiliation {
+                            color: #666;
+                            font-style: italic;
+                            margin-bottom: 1rem;
+                            font-size: 0.95rem;
+                        }
+                        .lightning-speaker-bio {
+                            color: #555;
+                            line-height: 1.6;
+                            font-size: 0.9rem;
+                        }
+                        @media (max-width: 1024px) {
+                            .lightning-speakers-grid {
+                                grid-template-columns: repeat(2, 1fr);
+                            }
+                        }
+                        @media (max-width: 768px) {
+                            .lightning-speakers-grid {
+                                grid-template-columns: 1fr;
+                            }
+                        }
+                    </style>
+                    
+                    <div class="lightning-speakers-grid">
+                        <div class="lightning-speaker-card animate-on-scroll">
+                            <div class="lightning-speaker-photo-container">
+                                <img src="assets/pic/ShihaoGong.jpg" alt="Shihao Gong">
+                            </div>
+                            <h3 class="lightning-speaker-name">Shihao Gong</h3>
+                            <p class="lightning-speaker-title">Master's Student</p>
+                            <p class="lightning-speaker-affiliation">Tongji University</p>
+                            <p class="lightning-speaker-bio">Shi-Hao Gong is a master's student in Urban Mobility at Tongji University, advised by Professor Jing Teng. His research interests mainly include spatiotemporal data mining and travel behavior analysis. His research have been published in journals such as Research in Transportation Business & Management and Railway Transport and Economy.</p>
+                        </div>
+
+                        <div class="lightning-speaker-card animate-on-scroll">
+                            <div class="lightning-speaker-photo-container">
+                                <img src="assets/pic/MingyueLi.jpg" alt="Mingyue Li">
+                            </div>
+                            <h3 class="lightning-speaker-name">Mingyue Li</h3>
+                            <p class="lightning-speaker-title">Master's Student</p>
+                            <p class="lightning-speaker-affiliation">Tongji University</p>
+                            <p class="lightning-speaker-bio">Mingyue Li is currently a master student in Transportation Engineering at Tongji University. Her research interests focus on the application of AI and geospatial intelligence to urban mobility forecasting, human mobility analysis cross mega-cities, and the optimization of urban transportation systems.</p>
+                        </div>
+
+                        <div class="lightning-speaker-card animate-on-scroll">
+                            <div class="lightning-speaker-photo-container">
+                                <img src="assets/pic/Yiping Liu.jpg" alt="Yiping Liu">
+                            </div>
+                            <h3 class="lightning-speaker-name">Yiping Liu</h3>
+                            <p class="lightning-speaker-title">Ph.D. Student</p>
+                            <p class="lightning-speaker-affiliation">KAIST Cho Chun Shik Graduate School of Mobility</p>
+                            <p class="lightning-speaker-bio">Yiping Liu obtained his Bachelor's degree from Chongqing University and his Master's degree from Southeast University. He is currently pursuing a Ph.D. at the KAIST Cho Chun Shik Graduate School of Mobility. His research focuses on traffic safety modeling, travel behavior analysis, and the application of large language models (LLMs) in generating and recommending personalized mobility solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="schedule" class="schedule-section">
             <div class="container">
                 <h2>Workshop Schedule</h2>
@@ -255,7 +362,7 @@
                                     <td>13:40 – 14:20</td>
                                     <td>Talk 1</td>
                                     <td>Professor Yaoyi Chiang</td>
-                                    <td>TBD</td>
+                                    <td>Bridging Language and Geography: Encoding Foundation Data for Human Mobility Mining</td>
                                 </tr>
                                 <tr>
                                     <td>14:20 – 15:00</td>
@@ -283,7 +390,7 @@
                                     <td>16:10 – 16:50</td>
                                     <td>Talk 4</td>
                                     <td>Dr. Khurram Shafique</td>
-                                    <td>TBD</td>
+                                    <td>Through the looking glass of human mobility: Anomalies that open doors to new models, maps, and policies.</td>
                                 </tr>
                                 <tr class="alt-row">
                                     <td>16:50 – 17:00</td>
